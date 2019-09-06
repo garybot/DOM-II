@@ -73,12 +73,14 @@ text.forEach(p => {
 	});
 });
 
-// start flashing header on page load
+// start flashing header on page load, stop flashing on header click
 
 window.addEventListener('load', event => {
 	const flash = window.setInterval(() => {
-		return document.querySelector('header').style.backgroundColor = colorPicker();
+		document.querySelector('header').style.zIndex = "10";
+		document.querySelector('header').style.backgroundColor = colorPicker();
 	}, 200);
+
 	document.querySelector('header').addEventListener('click', event => {
 		clearInterval(flash);
 	});
