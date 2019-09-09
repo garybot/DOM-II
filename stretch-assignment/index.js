@@ -10,10 +10,13 @@ blocks.forEach(block => {
   block.style.position = 'relative';
 
   function move() {
+    clearInterval(moveBack);
     if (offset < travelLimit) {
       block.style.left = `${offset++}px`;
     } else {
       clearInterval(moving);
+      moving = setInterval(moveBack, 20);
+
     }
   }
   function moveBack() {
